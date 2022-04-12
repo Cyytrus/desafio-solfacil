@@ -7,6 +7,8 @@ defmodule TecSolFacilWeb.Router do
 
   scope "/api", TecSolFacilWeb do
     pipe_through :api
+
+    resources "/addresses", AddressController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development
