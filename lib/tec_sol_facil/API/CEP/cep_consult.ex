@@ -14,7 +14,7 @@ defmodule TecSolFacil.API.CEP.CepConsult do
     content
     |> Jason.decode!()
     |> Map.new(fn {k, v} -> {String.to_atom(k), v} end)
-    |> Map.filter(fn {k,_v} -> k in @useful_data end)
+    |> Map.filter(fn {k, _v} -> k in @useful_data end)
   end
 
   defp handle_response({:error, reason}), do: reason

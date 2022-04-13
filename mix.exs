@@ -48,7 +48,9 @@ defmodule TecSolFacil.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
+      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:csv, "~> 2.4"},
+      {:oban, "~> 2.11"}
     ]
   end
 
