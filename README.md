@@ -1,8 +1,8 @@
 # Requisitos:
 
-  - [ x ] O usuário vai chamar um endpoint passando um cep para buscar um endereço, caso o cep já exista na nossa base de dados, deve-se retornar oendereço para o usuário caso contrário buscar o endereço no ws https://viacep.com.br/ws/CEP/json/ (ou outro ws da sua escolha) e precisamos salvar esse novo endereço dentro da nossa base de dados. 
+  - [x] O usuário vai chamar um endpoint passando um cep para buscar um endereço, caso o cep já exista na nossa base de dados, deve-se retornar oendereço para o usuário caso contrário buscar o endereço no ws https://viacep.com.br/ws/CEP/json/ (ou outro ws da sua escolha) e precisamos salvar esse novo endereço dentro da nossa base de dados. 
 
-- [ x ] Precisamos de um endpoint para gerar um CSV com todos os endereços salvos da nossa base de dados e esse processamento precisa ser assíncrono (a
+- [x] Precisamos de um endpoint para gerar um CSV com todos os endereços salvos da nossa base de dados e esse processamento precisa ser assíncrono (a
 arquitetura do envio desse CSV para o usuário fica a seu critério como a forma de fazer esse processamento).
 
 ## Requisitos Bônus ( Não obrigatório)
