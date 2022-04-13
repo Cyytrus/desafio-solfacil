@@ -11,8 +11,8 @@ defmodule TecSolFacilWeb.UserController do
     render(conn, "index.json", email: email)
   end
 
-  def create(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
+  def create(conn, %{"user" => user}) do
+    with {:ok, %User{} = user} <- Accounts.create_user(user) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.user_path(conn, :show, user))

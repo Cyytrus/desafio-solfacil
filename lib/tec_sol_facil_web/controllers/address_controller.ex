@@ -1,6 +1,7 @@
 defmodule TecSolFacilWeb.AddressController do
   use TecSolFacilWeb, :controller
 
+  alias TecSolFacil.API.CEP.CepConsult
   alias TecSolFacil.Infos
   alias TecSolFacil.Infos.Address
 
@@ -11,8 +12,24 @@ defmodule TecSolFacilWeb.AddressController do
     render(conn, "index.json", addresses: addresses)
   end
 
-  def create(conn, %{"address" => address_params}) do
-    with {:ok, %Address{} = address} <- Infos.create_address(address_params) do
+  def show(conn, %{"cep" => cep}) do
+    parsed_cep = cep |> String.split_at(5) |> then(fn {v1, v2} -> v1 <> "-" <> v2 end)
+
+    address = Infos.get_address(parsed_cep)
+
+    case address do
+      nil ->
+        create(conn, %{"cep" => cep})
+
+      address ->
+        render(conn, "show.json", address: address)
+    end
+  end
+
+  def create(conn, %{"cep" => cep}) do
+    with {:ok, %Address{} = address} <- Infos.create_address(search_cep(cep)) do
+      Infos.call_oban(%{})
+
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.address_path(conn, :show, address))
@@ -20,24 +37,5 @@ defmodule TecSolFacilWeb.AddressController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    address = Infos.get_address!(id)
-    render(conn, "show.json", address: address)
-  end
-
-  def update(conn, %{"id" => id, "address" => address_params}) do
-    address = Infos.get_address!(id)
-
-    with {:ok, %Address{} = address} <- Infos.update_address(address, address_params) do
-      render(conn, "show.json", address: address)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    address = Infos.get_address!(id)
-
-    with {:ok, %Address{}} <- Infos.delete_address(address) do
-      send_resp(conn, :no_content, "")
-    end
-  end
+  defp search_cep(cep), do: CepConsult.get_user_address_info(cep)
 end
