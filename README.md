@@ -1,19 +1,24 @@
-# TecSolFacil
+# Requisitos:
 
-To start your Phoenix server:
+  - [ x ] O usuário vai chamar um endpoint passando um cep para buscar um endereço, caso o cep já exista na nossa base de dados, deve-se retornar oendereço para o usuário caso contrário buscar o endereço no ws https://viacep.com.br/ws/CEP/json/ (ou outro ws da sua escolha) e precisamos salvar esse novo endereço dentro da nossa base de dados. 
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+- [ x ] Precisamos de um endpoint para gerar um CSV com todos os endereços salvos da nossa base de dados e esse processamento precisa ser assíncrono (a
+arquitetura do envio desse CSV para o usuário fica a seu critério como a forma de fazer esse processamento).
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Requisitos Bônus ( Não obrigatório)
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- Precisamos de uma maneira de garantir a segurança da nossa api,seja por algum tipo de token de autorização ou via basicaut (seria interessante um endpoint de login por usuário).
 
-## Learn more
+### Observações:
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+  - testes unitários são obrigatórios;
+
+  - A modelagem do banco de dados fica a seu critério;
+  
+  - Escreva um README comentando um pouco da solução proposta e como executar o projeto (seria interessante um docker para isso);
+
+  - Estaremos avaliando sua solução como um todo e não apenas seu código;
+  
+  - Crie um repositório no seu github de forma pública e envie o link para gente.
+
+# Explicando o código:
