@@ -23,7 +23,15 @@ defmodule TecSolFacilWeb.AddressControllerTest do
     logradouro: "some updated logradouro",
     uf: "some updated uf"
   }
-  @invalid_attrs %{bairro: nil, cep: nil, ddd: nil, ibge: nil, localidade: nil, logradouro: nil, uf: nil}
+  @invalid_attrs %{
+    bairro: nil,
+    cep: nil,
+    ddd: nil,
+    ibge: nil,
+    localidade: nil,
+    logradouro: nil,
+    uf: nil
+  }
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
