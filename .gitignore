@@ -32,3 +32,4 @@ tec_sol_facil-*.tar
 npm-debug.log
 /assets/node_modules/
 
+/exports.csv
