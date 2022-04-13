@@ -7,6 +7,11 @@
 # General application configuration
 import Config
 
+config :tec_sol_facil, Oban,
+  repo: TecSolFacil.Repo,
+  plugins: [Oban.Plugins.Pruner],
+  queues: [default: 10, events: 50, media: 20]
+
 config :tesla, adapter: Tesla.Adapter.Hackney
 
 config :tec_sol_facil,

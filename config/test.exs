@@ -5,6 +5,9 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
+
+config :tec_sol_facil, Oban, queues: false, plugins: false
+
 config :tec_sol_facil, TecSolFacil.Repo,
   username: "postgres",
   password: "postgres",
