@@ -7,7 +7,7 @@ arquitetura do envio desse CSV para o usuário fica a seu critério como a forma
 
 ## Requisitos Bônus ( Não obrigatório)
 
-- Precisamos de uma maneira de garantir a segurança da nossa api,seja por algum tipo de token de autorização ou via basicaut (seria interessante um endpoint de login por usuário).
+- Precisamos de uma maneira de garantir a segurança da nossa api,seja por algum tipo de token de autorização ou via basicauth (seria interessante um endpoint de login por usuário).
 
 ### Observações:
 
